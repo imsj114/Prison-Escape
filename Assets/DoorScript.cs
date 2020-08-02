@@ -17,14 +17,11 @@ public class DoorScript : MonoBehaviour
         anim.SetTrigger("OpenDoor");
     }
 
-    // void OnTriggerExit(Collider other)
-    // {
-    //     if (other.tag == "Player")
-    //     {
-    //         anim.SetBool("open", false);
-    //         OpenPanel.SetActive(false);
-    //     }
-    // }
+    void OnTriggerExit(Collider other)
+     {
+       
+        anim.enabled=true;
+ }
 
     // private bool IsOpenPanelActive
     // {
@@ -35,6 +32,10 @@ public class DoorScript : MonoBehaviour
     // }
 
     // Update is called once per frame
+
+    void pauseAnimationEvent(){
+        anim.enabled=false;
+    }
     void Update()
     {
         // if (IsOpenPanelActive)

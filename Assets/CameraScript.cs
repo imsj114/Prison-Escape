@@ -5,26 +5,32 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    private Animator anim;
+    //private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
-        anim=GetComponent<Animator>();
+        //anim=GetComponent<Animator>();
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
-        anim.SetTrigger("CameraMove");
+        
+        if (Input.GetKeyDown(KeyCode.F)){
+            transform.position=new Vector3(transform.position.x,0,transform.position.z);
+        }
+        
     }
+
+
 
     void OnTriggerExit(Collider other)
      {
        
-        anim.enabled=true;
+        //anim.enabled=true;
  }
 
     void pauseAnimationEvent(){
-        anim.enabled=false;
+        //anim.enabled=false;
     }
     void Update()
     {
@@ -36,5 +42,8 @@ public class CameraScript : MonoBehaviour
         //         anim.SetBool("open", true);
         //     }
         // }
+        /*
+        transform.position+=transform.forward*Time.deltaTime;
+        */
     }
 }

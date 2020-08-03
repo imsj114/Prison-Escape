@@ -11,9 +11,9 @@ public class DoorScript : MonoBehaviour
     {
         anim=GetComponent<Animator>();
     }
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
-        if(other.tag == "Player" && anim.GetCurrentAnimatorStateInfo(0).IsName("Empty")){
+        if((other.tag == "Player" || other.tag == "Patrol") && anim.GetCurrentAnimatorStateInfo(0).IsName("Empty")){
             Vector3 doorToPlayer = other.transform.position - transform.position;
 			float dotProduct = Vector3.Dot(transform.right, doorToPlayer);
             //Debug.Log(dotProduct.ToString());

@@ -1,7 +1,7 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!135 &1950394502901739551
-SphereCollider:
+--- !u!65 &2043338009014641062
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -11,8 +11,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0.1, y: 1.5, z: -0.8}
+  m_Size: {x: 4, y: 1, z: 2.4355025}
+  m_Center: {x: 0.07568884, y: 2, z: -1.5105948}
 --- !u!95 &3514596475396640083
 Animator:
   serializedVersion: 3

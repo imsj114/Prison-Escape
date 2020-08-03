@@ -11,7 +11,7 @@ public class DoorScript : MonoBehaviour
     {
         anim=GetComponent<Animator>();
     }
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if((other.tag == "Player" || other.tag == "Patrol") && anim.GetCurrentAnimatorStateInfo(0).IsName("Empty")){
             Vector3 doorToPlayer = other.transform.position - transform.position;

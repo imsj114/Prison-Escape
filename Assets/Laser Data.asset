@@ -21,8 +21,8 @@ MonoBehaviour:
       m_Bits: 0
     m_physicsType: 1
     m_rayWidth: 0.01
-    m_angularRange: 20
-    m_raysNumber: 3
+    m_angularRange: 40
+    m_raysNumber: 10
     m_minRadialDistance: 1
     m_maxRadialDistance: 25
     m_rotate: 0

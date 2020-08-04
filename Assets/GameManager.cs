@@ -29,15 +29,16 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         else {
-            items.Add("cellKey",false);
-            items.Add("doorKey",false);
-            items.Add("outKey",false);
-            items.Add("shovel",false);
-            items.Add("hammer",false);
-            items.Add("cardKey",false);
+            items.Add("cellKey",true);
+            items.Add("doorKey",true);
+            items.Add("outKey",true);
+            items.Add("shovel",true);
+            items.Add("hammer",true);
+            items.Add("cardKey",true);
             items.Add("bread",false);
             items.Add("meat",false);
             items.Add("cheese",false);
+            items.Add("helicopter",false);
 
             isGameover = false;
         }

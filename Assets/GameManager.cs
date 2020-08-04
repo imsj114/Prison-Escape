@@ -1,42 +1,47 @@
 ﻿
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-// Reference: https://stackoverflow.com/questions/35890932/unity-game-manager-script-works-only-one-time
-// Use _preload scene as the starting (not destroyed throughout the scene).
+public class GameManager : MonoBehaviour
+{
+    public static GameManager instance {
+        get {
+            if(m_instance == null){
+                m_instance = FindObjectOfType<GameManager>();
+            }
+            return m_instance;
+        }
+    }
+    
+    private static GameManager m_instance;
+    
+    public bool isGameover;
+    
 
 public class GameManager : MonoBehaviour {
     private GameObject player;
 
-    public enum Item
-    {
-        cellKey, doorKey, outKey, shovel, cardKey
-    }
+    public Dictionary<string, bool> items= new Dictionary<string, bool>();
 
-    public bool[] itemPicked = new bool[Enum.GetNames(typeof(Item)).Length];
-    
     void Awake() {
-        // player = GameObject.FindGameObjectsWithTag("Player")[0];
-        // On awake, go to menu scene.
-    }
+        if(instance != this) {
+            Destroy(gameObject);
+        }
+        else {
+            items.Add("cellKey",false);
+            items.Add("doorKey",false);
+            items.Add("outKey",false);
+            items.Add("shovel",false);
+            items.Add("hammer",false);
+            items.Add("cardKey",false);
+            items.Add("bread",false);
+            items.Add("meat",false);
+            items.Add("cheese",false);
 
-    bool isGameOver = true;
-    public void StartGame()
-    {
-        // Game started. Initialize all variables
-        isGameOver = false;
-        
-        // Load the first scene in the game.
+            isGameover = false;
+        }
     }
-
-    public void GameOver()
-    {
-        isGameOver = true;
-        // Game is over!
-    }
-
 }

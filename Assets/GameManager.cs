@@ -15,8 +15,7 @@ public class GameManager : MonoBehaviour
             return m_instance;
         }
     }
-    
-    private static GameManager m_instance;
+    public static GameManager m_instance;
     
     public bool isGameover;
     

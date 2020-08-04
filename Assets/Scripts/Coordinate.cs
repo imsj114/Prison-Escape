@@ -11,12 +11,12 @@ public class Coordinate : MonoBehaviour
 
 
     public GameObject block1, block2,block3, block4,block5, block6, block7, block8, block9, block10, block11, block12;
-    public int x_bound_upper = 22;
-    public int x_bound_lower = -1;
+    private double x_bound_upper = 22.0;
+    private double x_bound_lower = -1.0;
 
 
-    public int z_bound_upper=0;
-    public int z_bound_lower=-11;
+    private  double z_bound_upper = 1.0;
+    private double z_bound_lower=-11.0;
     public Vector3 [] coor;
     
     // Start is called before the first frame update
@@ -40,12 +40,22 @@ public class Coordinate : MonoBehaviour
     }
     
     public bool check_grid(Vector3 position){
-            if(position.x-start_x >= x_bound_lower && position.x-start_x <=x_bound_upper && position.z-start_z >= z_bound_lower && position.z-start_z<= z_bound_upper){
+            Debug.Log((position.x-start_x) >= x_bound_lower);
+            Debug.Log((position.x-start_x) <= x_bound_upper);
+            Debug.Log((position.z-start_z) >= z_bound_lower);
+            Debug.Log(position.z-start_z);
+            Debug.Log(z_bound_upper);
+            Debug.Log((position.z-start_z)<= z_bound_upper);
+
+
+
+            if((position.x-start_x) >= x_bound_lower && (position.x-start_x) <=x_bound_upper && (position.z-start_z) >= z_bound_lower && (position.z-start_z)<= z_bound_upper){
                 Debug.Log("check_grid successfully done");
             
                 return true;
             }
             else{
+                Debug.Log("check_grid_error"+(position.x-start_x)+"zzz"+(position.z-start_z));
                 return false;
             }
     }
@@ -55,11 +65,11 @@ public class Coordinate : MonoBehaviour
         for(int i=0; i<coor.Length; i++){
             for(int j=0; j<i; j++){
                 if ((Mathf.Abs(coor[i].x- coor[j].x )<=1.5f && Mathf.Abs(coor[i].z- coor[j].z)<=1.5f)){
+                     Debug.Log("check_block_error");
                     return false;
                 }
             }
         }
-        Debug.Log("check_block_collision successfully done");
         return true;
     }
 

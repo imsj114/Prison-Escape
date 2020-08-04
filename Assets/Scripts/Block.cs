@@ -49,6 +49,7 @@ public class Block : MonoBehaviour
                     coordinate.coor[block_index]=test;
                     if(coordinate.check_grid(test) && coordinate.check_block_collision()){
                         transform.position=test;
+                        player.transform.position= player.transform.position+ new Vector3(-1.5f,0.0f,0.0f);
                         Debug.Log("Moved");
                     }
                     else{
@@ -61,6 +62,7 @@ public class Block : MonoBehaviour
                     coordinate.coor[block_index]=test;
                     if(coordinate.check_grid(test) && coordinate.check_block_collision()){
                         transform.position=test;
+                        player.transform.position= player.transform.position+ new Vector3(+1.5f,0.0f,0.0f);
                         Debug.Log("Moved");
                     }
                     else{
@@ -73,6 +75,7 @@ public class Block : MonoBehaviour
                     coordinate.coor[block_index]=test;
                     if(coordinate.check_grid(test) && coordinate.check_block_collision()){
                         transform.position=test;
+                        player.transform.position= player.transform.position+ new Vector3(0.0f,0.0f,-1.5f);
                         Debug.Log("Moved");
                     }
                     else{
@@ -85,7 +88,68 @@ public class Block : MonoBehaviour
                     coordinate.coor[block_index]=test;
                     if(coordinate.check_grid(test) && coordinate.check_block_collision()){
                         transform.position=test;
+                        player.transform.position= player.transform.position+ new Vector3(0.0f,0.0f,+1.5f);
                         Debug.Log("Moved");
+                    }
+                    else{
+                        coordinate.coor[block_index]=transform.position;
+                        Debug.Log("cannot move, collision occured ");
+                    }
+                    break;
+        
+            }
+        }
+
+
+        if(Input.GetKeyDown(KeyCode.G) && other.gameObject.tag =="Player"){
+            Vector3 test;
+            switch(min_index){
+                case 0:
+                    test= new Vector3(+1.5f,0.0f,0.0f)+ transform.position;
+                    coordinate.coor[block_index]=test;
+                    if(coordinate.check_grid(test) && coordinate.check_block_collision()){
+                        transform.position=test;
+                        player.transform.position= player.transform.position+ new Vector3(+1.5f,0.0f,0.0f);
+                        Debug.Log("Pulled");
+                    }
+                    else{
+                        coordinate.coor[block_index]=transform.position;
+                        Debug.Log("cannot move, collision occured ");
+                    }
+                    break;
+                case 1:
+                    test = new Vector3(-1.5f,0.0f,0.0f)+ transform.position;
+                    coordinate.coor[block_index]=test;
+                    if(coordinate.check_grid(test) && coordinate.check_block_collision()){
+                        transform.position=test;
+                        player.transform.position= player.transform.position+ new Vector3(-1.5f,0.0f,0.0f);
+                        Debug.Log("Pulled");
+                    }
+                    else{
+                        coordinate.coor[block_index]=transform.position;
+                        Debug.Log("cannot move, collision occured ");
+                    }
+                    break;
+                case 2:
+                    test = new Vector3(0.0f,0.0f,+1.5f)+ transform.position;
+                    coordinate.coor[block_index]=test;
+                    if(coordinate.check_grid(test) && coordinate.check_block_collision()){
+                        transform.position=test;
+                        player.transform.position= player.transform.position+ new Vector3(0.0f,0.0f,1.5f);
+                        Debug.Log("Pulled");
+                    }
+                    else{
+                        coordinate.coor[block_index]=transform.position;
+                        Debug.Log("cannot move, collision occured ");
+                    }
+                    break;
+                case 3:
+                    test = new Vector3(0.0f,0.0f,-1.5f)+ transform.position;
+                    coordinate.coor[block_index]=test;
+                    if(coordinate.check_grid(test) && coordinate.check_block_collision()){
+                        transform.position=test;
+                        player.transform.position= player.transform.position+ new Vector3(0.0f,0.0f,-1.5f);
+                        Debug.Log("Pulled");
                     }
                     else{
                         coordinate.coor[block_index]=transform.position;

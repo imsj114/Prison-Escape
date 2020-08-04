@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Inventory
   - Coordinate
+  - Patrol
   layers:
   - Default
   - TransparentFX

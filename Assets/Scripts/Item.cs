@@ -9,6 +9,10 @@ public class Item : MonoBehaviour
  
     // 인벤토리에 접근하기 위한 변수.
     private Inventory Iv;
+
+    public GameManager manager;
+
+    public string itemType;
  
     void Awake()
     {
@@ -20,16 +24,16 @@ public class Item : MonoBehaviour
  
     void AddItem()
     {
-        // 아이템 획득에 실패할 경우.
+        
         Iv.AddItem(this);
         gameObject.SetActive(false); // 아이템을 비활성화 시켜준다.
+        manager.items[itemType]=true; // 특정 아이템을 가지고 있다.
     }
  
     // 충돌체크
     void OnTriggerStay(Collider _col)  //STAY
     {
-        Debug.Log("BBBB");
-        // 플레이어와 충돌하면.
+    
         if (Input.GetKeyDown(KeyCode.F))
             AddItem();
     }

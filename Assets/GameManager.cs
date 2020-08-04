@@ -1,10 +1,10 @@
-﻿/*
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-​
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance {
@@ -16,27 +16,30 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    public bool isGameover { get; private set; }
     private static GameManager m_instance;
     
-
-    private Player player1;
-    public boolean digged=false;
-
-
-    public Item cellKey, doorKey, outKey, shovel,cardKey;
-
-    public Movable patrol;
+    public bool isGameover;
     
+
+
+    public Dictionary<string, bool> items= new Dictionary<string, bool>();
+
     void Awake() {
         if(instance != this) {
             Destroy(gameObject);
-        }else {
-            player1 = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
+        }
+        else {
+            items.Add("cellKey",false);
+            items.Add("doorKey",false);
+            items.Add("outKey",false);
+            items.Add("shovel",false);
+            items.Add("hammer",false);
+            items.Add("cardKey",false);
+            items.Add("bread",false);
+            items.Add("meat",false);
+            items.Add("cheese",false);
+
             isGameover = false;
         }
     }
-
-
 }
-*/

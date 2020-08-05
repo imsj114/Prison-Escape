@@ -15,6 +15,7 @@ public class DoorScript_door : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager=GameManager.instance;
         anim=GetComponent<Animator>();
     }
     void OnTriggerStay(Collider other)

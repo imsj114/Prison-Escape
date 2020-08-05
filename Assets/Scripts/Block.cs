@@ -38,7 +38,6 @@ public class Block : MonoBehaviour
                 min_index = i;
             }
         }
-        Debug.Log(min_index);
         if(Input.GetKeyDown(KeyCode.F) && other.gameObject.tag =="Player"){
             Vector3 test;
             switch(min_index){

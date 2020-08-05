@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour {
     private static GameManager m_instance;
     private GameObject player;
     private bool isGameOver = true;
+    private GameObject pauseSceneRoot;
 
     public Dictionary<string, bool> items= new Dictionary<string, bool>();
     
@@ -48,13 +49,26 @@ public class GameManager : MonoBehaviour {
             }
             // TODO: Go to menu scene
             SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive);
         }
         
     }
 
+    void Start() 
+    {
+        pauseSceneRoot = GameObject.FindWithTag("PauseMenu");
+        pauseSceneRoot.SetActive(false);
+        DontDestroyOnLoad(pauseSceneRoot);
+    }
+
     void Update() {
-        if(Input.GetButtonDown("Cancel"))
-            paused = togglePause();
+        if(Input.GetButtonDown("Cancel") && !isGameOver)
+            SetPauseMenu();
+    }
+
+    public void SetPauseMenu() {
+        paused = togglePause();
+        pauseSceneRoot.SetActive(paused);
     }
 
     public void StartGame()
@@ -78,7 +92,12 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    private bool paused = false;
+    public void GoToMenu()
+    {
+        return;
+    }
+
+    public bool paused = false;
     private bool togglePause(){
         if(Time.timeScale == 0f) {
             Time.timeScale = 1f;

@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour {
             items.Add(itemName, false);
             }
             // TODO: Go to menu scene
+            SceneManager.LoadScene("Menu");
         }
         
     }
@@ -61,6 +62,9 @@ public class GameManager : MonoBehaviour {
             items[itemName] = false;
         }
         // TODO: Go to start scene
+        Initiate.Fade("Present",Color.black,1f);
+        //SceneManager.LoadScene("Present");
+        //SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
     }
 
     public void GameOver(bool escaped = false)

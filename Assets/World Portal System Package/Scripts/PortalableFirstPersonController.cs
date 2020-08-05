@@ -176,6 +176,7 @@ namespace PortalableFirstPerson
 
         private void Update()
         {
+            if(GameManager.instance.paused) return;
             RotateView();
 
 			if (Input.GetMouseButtonDown (0)) {
@@ -222,6 +223,7 @@ namespace PortalableFirstPerson
 
         private void FixedUpdate()
         {
+            if(GameManager.instance.paused) return;
             GroundCheck();
             Vector2 input = GetInput();
 

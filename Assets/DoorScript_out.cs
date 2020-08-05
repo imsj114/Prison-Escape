@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class DoorScript_out : MonoBehaviour
 {
     private Animator anim;
-    private GameManager gameManager = GameManager.instance;
+    private GameManager gameManager;
     public Text nameText;
     public Text dialogueText;
     public Animator animator;
@@ -15,6 +15,7 @@ public class DoorScript_out : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameManager.instance;
         anim=GetComponent<Animator>();
     }
     void OnTriggerStay(Collider other)

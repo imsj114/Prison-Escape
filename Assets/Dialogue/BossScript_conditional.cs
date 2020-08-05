@@ -11,7 +11,7 @@ public class BossScript_conditional : MonoBehaviour
     public Text dialogueText;
     public Animator animator;
 
-    public GameManager gameManager;
+    private GameManager gameManager;
 
     private int size;
     private int cnt;
@@ -19,6 +19,7 @@ public class BossScript_conditional : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameManager.instance;
         size = dialogue.sentences.Length;
         cnt = 0;
     }
@@ -29,6 +30,7 @@ public class BossScript_conditional : MonoBehaviour
         if (has_bread){  //먹을거 조건문
             if (Input.GetKeyDown(KeyCode.F) && cnt == 0){
                 gameManager.items["helicopter"] = true;
+                Debug.Log(gameManager.items["helicopter"]);
                 sentences = new Queue<string>();
                 animator.SetBool("IsOpen", true);
                 sentences.Clear();

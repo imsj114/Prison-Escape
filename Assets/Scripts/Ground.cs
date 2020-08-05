@@ -12,6 +12,8 @@ public class Ground : MonoBehaviour
     public Animator animator;
 
     void Start(){
+        manager = GameManager.instance;
+
         if (manager.items["shovel"]){
             gameObject.SetActive(false);
         }

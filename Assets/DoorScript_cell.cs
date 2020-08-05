@@ -8,7 +8,7 @@ public class DoorScript_cell : MonoBehaviour
 {
     
     private Animator anim;
-    public GameManager gameManager;
+    private GameManager gameManager;
     public Text nameText;
     public Text dialogueText;
     public Animator animator;
@@ -16,6 +16,7 @@ public class DoorScript_cell : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameManager.instance;
         anim=GetComponent<Animator>();
     }
     void OnTriggerEnter(Collider other)

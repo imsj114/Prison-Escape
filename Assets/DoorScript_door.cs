@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class DoorScript_door : MonoBehaviour
 {
     private Animator anim;
-    public GameManager gameManager;
+    private GameManager gameManager;
     public Text nameText;
     public Text dialogueText;
     public Animator animator;
@@ -16,6 +16,7 @@ public class DoorScript_door : MonoBehaviour
     void Start()
     {
         anim=GetComponent<Animator>();
+         gameManager = GameManager.instance;
     }
     void OnTriggerStay(Collider other)
     {

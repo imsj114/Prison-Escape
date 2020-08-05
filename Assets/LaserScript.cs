@@ -9,7 +9,7 @@ public class LaserScript : MonoBehaviour
     public GameObject laser2;
     public GameObject button;
 
-    public GameManager gameManager;
+    private GameManager gameManager;
     public Text nameText;
     public Text dialogueText;
     public Animator animator;
@@ -17,7 +17,7 @@ public class LaserScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = GameManager.instance;
     }
 
     void OnTriggerStay(Collider other)

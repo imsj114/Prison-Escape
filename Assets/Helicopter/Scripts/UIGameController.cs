@@ -7,7 +7,7 @@ public class UIGameController : MonoBehaviour
     public Text EngineForceView;
     public GameObject RestartButton;
     public GameObject InfoButton;
-    public GameObject InfoPanel;
+    //public GameObject InfoPanel;
 
 	// Use this for initialization
     public static UIGameController runtime;
@@ -32,7 +32,14 @@ public class UIGameController : MonoBehaviour
         EngineForceView.gameObject.SetActive(!isShow);
         RestartButton.SetActive(!isShow);
         InfoButton.SetActive(!isShow);
-        InfoPanel.SetActive(isShow);
+        //InfoPanel.SetActive(isShow);
+    }
+     private void HideInfoPanel(bool isShow)
+    {
+        EngineForceView.gameObject.SetActive(isShow);
+        RestartButton.SetActive(isShow);
+        InfoButton.SetActive(isShow);
+        //InfoPanel.SetActive(!isShow);
     }
 
     public void ShowInfo()
@@ -41,7 +48,7 @@ public class UIGameController : MonoBehaviour
     }
     public void HideInfo()
     {
-        ShowInfoPanel(false);
+        ShowInfoPanel(true);
     }
 
     public void RestartGame()

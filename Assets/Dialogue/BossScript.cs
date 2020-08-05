@@ -46,9 +46,19 @@ public class BossScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) && cnt == size){
             animator.SetBool("IsOpen", false);
+            cnt = 0;
             return;
         }
        
+    }
+
+     void OnTriggerExit(Collider other)
+     {
+       if (animator.GetBool("IsOpen") == true){
+            animator.SetBool("IsOpen", false);
+            return;
+        }
+        //anim.enabled=true;
     }
     // Update is called once per frame
     void Update()

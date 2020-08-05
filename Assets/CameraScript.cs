@@ -7,14 +7,16 @@ using UnityEngine.UI;
 
 public class CameraScript : MonoBehaviour
 {
-    public GameManager gameManager;
+    private GameManager gameManager;
     public Text nameText;
     public Text dialogueText;
     public Animator animator;
     //private Animator anim;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        gameManager = GameManager.instance;
+        Debug.Log("camera intersect");
         //anim=GetComponent<Animator>();
     }
 

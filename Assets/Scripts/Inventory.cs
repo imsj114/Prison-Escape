@@ -38,7 +38,7 @@ public class Inventory : MonoBehaviour
             }
             EmptySlot = AllSlot.Count;
             itemNum=0;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(transform.root.gameObject);
         }
         
     }

@@ -8,6 +8,7 @@ TagManager:
   - Coordinate
   - Patrol
   - PauseMenu
+  - GameManager
   layers:
   - Default
   - TransparentFX

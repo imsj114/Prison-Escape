@@ -34,8 +34,7 @@ public class Slot : MonoBehaviour {
     // 슬롯에 대한 각종 정보 업데이트.
     public void UpdateInfo(bool isSlot, Sprite sprite)
     {
-        SetSlots(isSlot);
-        Debug.Log(sprite.ToString());                                         // 슬롯이 비어있다면 false 아니면 true 셋팅.
+        SetSlots(isSlot);                                     // 슬롯이 비어있다면 false 아니면 true 셋팅.
         ItemImg.sprite = sprite;                                   // 슬롯안에 들어있는 아이템의 이미지를 셋팅.
                                    
     }

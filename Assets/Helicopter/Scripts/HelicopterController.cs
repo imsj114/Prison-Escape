@@ -9,6 +9,12 @@ public class HelicopterController : MonoBehaviour
     public HeliRotorController MainRotorController;
     public HeliRotorController SubRotorController;
 
+    public Text nameText;
+    public Text dialogueText;
+    public Animator animator;
+
+    private GameManager gameManager;
+
     public float TurnForce = 3f;
     public float ForwardForce = 10f;
     public float ForwardTiltForce = 20f;
@@ -36,12 +42,16 @@ public class HelicopterController : MonoBehaviour
 
     private Vector2 hMove = Vector2.zero;
     private Vector2 hTilt = Vector2.zero;
+
+    private Vector3 s_position;
     private float hTurn = 0f;
     public bool IsOnGround = true;
 
     // Use this for initialization
 	void Start ()
 	{
+        gameManager=GameManager.instance;
+        s_position=transform.localPosition;
         ControlPanel.KeyPressed += OnKeyPressed;
 	}
 
@@ -53,6 +63,14 @@ public class HelicopterController : MonoBehaviour
         LiftProcess();
         MoveProcess();
         TiltProcess();
+
+        Debug.Log(transform.localPosition);
+        if( Vector3.Distance(s_position, transform.localPosition) >100){
+            animator.SetBool("IsOpen", true);
+            nameText.text = "Congrats!!";
+            dialogueText.text = "탈출했다!! 야호~!!";
+            gameManager.GameOver();
+        }
     }
 
     private void MoveProcess()
@@ -65,7 +83,9 @@ public class HelicopterController : MonoBehaviour
 
     private void LiftProcess()
     {
-        var upForce = 1 - Mathf.Clamp(HelicopterModel.transform.position.y / EffectiveHeight, 0, 1);
+       
+        var upForce = 1 - Mathf.Clamp(HelicopterModel.transform.localPosition.y / EffectiveHeight, 0, 1);
+         Debug.Log(upForce.ToString());
         upForce = Mathf.Lerp(0f, EngineForce, upForce) * HelicopterModel.mass;
         HelicopterModel.AddRelativeForce(Vector3.up * upForce);
     }

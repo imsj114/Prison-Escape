@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ControlPanel : MonoBehaviour {
-    public AudioSource MusicSound;
 
     [SerializeField]
     KeyCode SpeedUp = KeyCode.Space;
@@ -59,16 +58,7 @@ public class ControlPanel : MonoBehaviour {
 	    if (KeyPressed != null)
 	        KeyPressed(pressedKeyCode.ToArray());
 
-        // for test
-        if (Input.GetKey(MusicOffOn))
-        {
-           if (  MusicSound.volume == 1) return;
-/*            if (MusicSound.isPlaying)
-                MusicSound.Stop();
-            else*/
-                MusicSound.volume = 1;
-                MusicSound.Play();
-        }
+        // 
       
 	}
 }

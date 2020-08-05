@@ -75,10 +75,10 @@ public class GameManager : MonoBehaviour {
     {
         isGameOver = false;
         foreach(string itemName in itemStrings){
-            items[itemName] = false;
+            items[itemName] = true;
         }
         // TODO: Go to start scene
-        Initiate.Fade("Past2",Color.black,1f);
+        Initiate.Fade("Present",Color.black,1f);
         //SceneManager.LoadScene("Present");
     }
 

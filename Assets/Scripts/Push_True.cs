@@ -11,18 +11,25 @@ public class Push_True : MonoBehaviour
     public Animator animator;
 
     void Start(){
+        gameManager = GameManager.instance;
         if (!gameManager.items["shovel"] ){
             gameObject.SetActive(false);
         }
     }
     void OnTriggerStay(Collider _col)  //STAY
     {
-        if (gameManager.items["shovel"] && Input.GetKeyDown(KeyCode.F) ){
+
+        if(Input.GetKeyDown(KeyCode.F) ){
+            transform.position=new Vector3(transform.position.x,transform.position.y, transform.position.z + 10f);
+            return;
+        }
+        if (gameManager.items["shovel"] ){
             animator.SetBool("IsOpen", true);
             nameText.text = "나의 생각";
             dialogueText.text = "내가 이 곳을 파놨었지! 여기로 탈출해야겠다";
-            transform.position=new Vector3(transform.position.x,transform.position.y, transform.position.z + 10f);
+            return;
         }
+        
 
         // if (Input.GetKeyDown(KeyCode.P)){
         // animator.SetBool("IsOpen", true);

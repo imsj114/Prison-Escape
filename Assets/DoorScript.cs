@@ -5,16 +5,18 @@ using UnityEngine;
 
 public class DoorScript : MonoBehaviour
 {
+    public string keyName = "";
     private Animator anim;
-    public GameManager gameManager;
+    private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameManager.instance;
         anim=GetComponent<Animator>();
     }
     void OnTriggerEnter(Collider other)
     {
-        bool has_cellKey = gameManager.items["cellKey"];
+        bool has_cellKey = (keyName != "") ? gameManager.items[keyName] : true;
         if (has_cellKey){
             if((other.tag == "Player" || other.tag == "Patrol") && anim.GetCurrentAnimatorStateInfo(0).IsName("Empty")){
                 Vector3 doorToPlayer = other.transform.position - transform.position;

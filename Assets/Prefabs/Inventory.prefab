@@ -379,7 +379,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1595071657773871826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -64.5}
+  m_LocalPosition: {x: 0, y: 0, z: 109}
   m_LocalScale: {x: 0.99187, y: 0.99187, z: 0.99187}
   m_Children:
   - {fileID: 1595071658737986065}
@@ -453,12 +453,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllSlot: []
-  InvenRect: {fileID: 0}
-  OriginSlot: {fileID: 0}
-  slotSize: 0
-  slotGap: 0
-  slotCountX: 0
-  slotCountY: 0
   itemNum: 0
 --- !u!1 &1595071658058739705
 GameObject:

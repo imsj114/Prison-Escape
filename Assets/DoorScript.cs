@@ -6,6 +6,7 @@ using UnityEngine;
 public class DoorScript : MonoBehaviour
 {
     private Animator anim;
+    public GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,16 +14,19 @@ public class DoorScript : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if((other.tag == "Player" || other.tag == "Patrol") && anim.GetCurrentAnimatorStateInfo(0).IsName("Empty")){
-            Vector3 doorToPlayer = other.transform.position - transform.position;
-			float dotProduct = Vector3.Dot(transform.right, doorToPlayer);
-            //Debug.Log(dotProduct.ToString());
-            if(dotProduct > 0){
-                anim.SetTrigger("OpenDoorPos");
-            }else{
-                anim.SetTrigger("OpenDoorNeg");
+        bool has_cellKey = gameManager.items["cellKey"];
+        if (has_cellKey){
+            if((other.tag == "Player" || other.tag == "Patrol") && anim.GetCurrentAnimatorStateInfo(0).IsName("Empty")){
+                Vector3 doorToPlayer = other.transform.position - transform.position;
+                float dotProduct = Vector3.Dot(transform.right, doorToPlayer);
+                //Debug.Log(dotProduct.ToString());
+                if(dotProduct > 0){
+                    anim.SetTrigger("OpenDoorPos");
+                }else{
+                    anim.SetTrigger("OpenDoorNeg");
+                }
+                
             }
-            
         }
     }
 

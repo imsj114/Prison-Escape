@@ -2,9 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class CameraScript : MonoBehaviour
 {
+    public GameManager gameManager;
+    public Text nameText;
+    public Text dialogueText;
+    public Animator animator;
     //private Animator anim;
     // Start is called before the first frame update
     void Start()
@@ -14,18 +20,32 @@ public class CameraScript : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        
-        if (Input.GetKeyDown(KeyCode.F)){
-            transform.position=new Vector3(transform.position.x,0,transform.position.z);
+        bool has_hammer = gameManager.items["hammer"];
+
+        if (has_hammer){
+            if (Input.GetKeyDown(KeyCode.F)){
+                transform.position=new Vector3(transform.position.x,0,transform.position.z);
+                animator.SetBool("IsOpen", true);
+                nameText.text = "나의 생각";
+                dialogueText.text = "성공!";
+                return;
+            }
+        } else {
+            animator.SetBool("IsOpen", true);
+            nameText.text = "나의 생각";
+            dialogueText.text = "이런... 저 CCTV 때문에 탈옥을 못하겠어! 과거로 가서 해결책을 찾자!";
+            return;
         }
         
     }
 
 
-
     void OnTriggerExit(Collider other)
      {
-       
+       if (animator.GetBool("IsOpen") == true){
+            animator.SetBool("IsOpen", false);
+            return;
+        }
         //anim.enabled=true;
  }
 

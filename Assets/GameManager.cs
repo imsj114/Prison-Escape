@@ -14,18 +14,11 @@ public class GameManager : MonoBehaviour {
             return m_instance;
         }
     }
-<<<<<<< HEAD
-    public static GameManager m_instance;
-    
-    public bool isGameover;
-    
 
-=======
     
     private static GameManager m_instance;
     private GameObject player;
     private bool isGameOver = true;
->>>>>>> 2ccea0bfd7ae1bca9bd940ab1a5b05b37aba008a
 
     public Dictionary<string, bool> items= new Dictionary<string, bool>();
     
@@ -40,7 +33,8 @@ public class GameManager : MonoBehaviour {
             "cardKey",
             "bread",
             "meat",
-            "cheese"
+            "cheese",
+            "helicopter"
         };
 
     void Awake() {

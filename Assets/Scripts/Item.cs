@@ -10,7 +10,7 @@ public class Item : MonoBehaviour
     // 인벤토리에 접근하기 위한 변수.
     private Inventory Iv;
 
-    public GameManager manager;
+    private GameManager manager;
 
     public string itemType;
  
@@ -18,6 +18,7 @@ public class Item : MonoBehaviour
     {
         // 태그명이 "Inventory"인 객체의 GameObject를 반환한다.
         // 반환된 객체가 가지고 있는 스크립트를 GetComponent를 통해 가져온다.
+        manager = GameManager.instance;
         Iv = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
 
     }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
  
 public class Item : MonoBehaviour
 {
@@ -12,8 +13,20 @@ public class Item : MonoBehaviour
 
     private GameManager manager;
 
+    private Animator anim;
+
+    public Text nameText;
+    public Text dialogueText;
+    public Animator animator;
+
+
     public string itemType;
  
+
+    void Start()
+    {
+        
+    }
     void Awake()
     {
         // 태그명이 "Inventory"인 객체의 GameObject를 반환한다.
@@ -33,10 +46,31 @@ public class Item : MonoBehaviour
  
     // 충돌체크
     void OnTriggerStay(Collider _col)  //STAY
-    {
-    
-        if (Input.GetKeyDown(KeyCode.F))
+    {  
+        if (Input.GetKeyDown(KeyCode.F)){
             AddItem();
+            if (animator.GetBool("IsOpen") == true)
+            {
+                animator.SetBool("IsOpen", false);
+                return;
+            }
+        }
+        else{
+            if(animator.GetBool("IsOpen") == false){
+            animator.SetBool("IsOpen", true);
+            nameText.text = "나의 생각";
+            dialogueText.text = "쓸모있는 물건 같은데? 챙겨가면 어딘가에 쓸 수 있겠어";
+            return;  
+            }
+        }
+    }
+
+    void OnTriggerExit(Collider _col)
+     {
+        if (animator.GetBool("IsOpen") == true){
+            animator.SetBool("IsOpen", false);
+            return;
+            }
     }
 }
  

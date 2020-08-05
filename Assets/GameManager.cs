@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour {
             items[itemName] = false;
         }
         // TODO: Go to start scene
-        Initiate.Fade("Present",Color.black,1f);
+        Initiate.Fade("SampleScene",Color.black,1f);
         //SceneManager.LoadScene("Present");
         //SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
     }

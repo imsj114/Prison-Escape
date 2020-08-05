@@ -47,7 +47,7 @@ public class Item : MonoBehaviour
     // 충돌체크
     void OnTriggerStay(Collider _col)  //STAY
     {  
-        if (Input.GetKeyDown(KeyCode.F)){
+        if (Input.GetKeyDown(KeyCode.F) && _col.tag == "Player"){
             AddItem();
             if (animator.GetBool("IsOpen") == true)
             {
@@ -56,7 +56,7 @@ public class Item : MonoBehaviour
             }
         }
         else{
-            if(animator.GetBool("IsOpen") == false){
+            if(animator.GetBool("IsOpen") == false && _col.tag == "Player"){
             animator.SetBool("IsOpen", true);
             nameText.text = "나의 생각";
             dialogueText.text = "쓸모있는 물건 같은데? 챙겨가면 어딘가에 쓸 수 있겠어";

@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class Ground : MonoBehaviour
 {
 
-    public GameManager manager;
+    private GameManager manager;
     public Text nameText;
     public Text dialogueText;
     public Animator animator;
 
-    void Start(){
+    void Awake(){
+        manager = GameManager.instance;
         if (manager.items["shovel"]){
             gameObject.SetActive(false);
         }

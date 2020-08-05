@@ -14,7 +14,7 @@ public class Ground_Past1 : MonoBehaviour
 
     void Start(){
         manager = GameManager.instance;
-        manager.items["shovel"] = true;
+        //manager.items["shovel"] = true;
     }
 
      void OnTriggerStay(Collider _col)  //STAY

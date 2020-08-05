@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class DoorScript_out : MonoBehaviour
 {
     private Animator anim;
-    public GameManager gameManager;
+    private GameManager gameManager = GameManager.instance;
     public Text nameText;
     public Text dialogueText;
     public Animator animator;

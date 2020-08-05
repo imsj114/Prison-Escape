@@ -8526,7 +8526,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &435105580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12708,7 +12708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &537455296
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16004,7 +16004,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh2253140
+  m_Name: pb_Mesh2337220
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -36138,7 +36138,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1916850
+  m_Name: pb_Mesh2336816
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -37738,7 +37738,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh2302606
+  m_Name: pb_Mesh2337126
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -44055,7 +44055,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 418382, guid: d9b86810d190e46c38b0f90ac9219aa7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.78
+      value: 48.51
       objectReference: {fileID: 0}
     - target: {fileID: 418382, guid: d9b86810d190e46c38b0f90ac9219aa7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -44063,7 +44063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 418382, guid: d9b86810d190e46c38b0f90ac9219aa7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -21.34
+      value: 11.82
       objectReference: {fileID: 0}
     - target: {fileID: 418382, guid: d9b86810d190e46c38b0f90ac9219aa7, type: 3}
       propertyPath: m_LocalRotation.x
@@ -46130,7 +46130,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh2252606
+  m_Name: pb_Mesh2336684
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

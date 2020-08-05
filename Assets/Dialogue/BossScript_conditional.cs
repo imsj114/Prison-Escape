@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BossScript_conditional : MonoBehaviour
+public class BossScript_Conditional : MonoBehaviour
 {
     public Dialogue dialogue;
     private Queue<string> sentences;
     public Text nameText;
     public Text dialogueText;
     public Animator animator;
-
-    public GameManager gameManager;
-
     private int size;
     private int cnt;
 
@@ -24,11 +21,9 @@ public class BossScript_conditional : MonoBehaviour
     }
     void OnTriggerStay(Collider other)
     {
-        bool has_bread = gameManager.items["bread"];
       
-        if (has_bread){  //먹을거 조건문
+        if (true){  //먹을거 조건문
             if (Input.GetKeyDown(KeyCode.F) && cnt == 0){
-                gameManager.items["helicopter"] = true;
                 sentences = new Queue<string>();
                 animator.SetBool("IsOpen", true);
                 sentences.Clear();
@@ -59,7 +54,7 @@ public class BossScript_conditional : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F) && cnt == 0){
                 animator.SetBool("IsOpen", true);
                 nameText.text = dialogue.name;
-                dialogueText.text = "나는 빵을 좋아해";
+                dialogueText.text = "나에게 맛있는걸 가져다 줘!";
                 cnt ++;
                 return;
             }

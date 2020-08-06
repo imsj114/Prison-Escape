@@ -22,8 +22,7 @@ public class GameManager : MonoBehaviour {
     private GameObject pauseSceneRoot;
 
     public Dictionary<string, bool> items= new Dictionary<string, bool>();
-    
-
+    public Dictionary<string, int> stages = new Dictionary<string, int>();
     string[] itemStrings =
         {
             "cellKey",
@@ -35,7 +34,15 @@ public class GameManager : MonoBehaviour {
             "bread",
             "meat",
             "cheese",
-            "helicopter"
+            "helicopter",
+            "groundDigged",
+            "isCCTVBroken"
+        };
+    string[] stageStrings =
+        {
+            "present",
+            "past1",
+            "past2"
         };
 
     void Awake() {
@@ -45,7 +52,10 @@ public class GameManager : MonoBehaviour {
         else
         {
             foreach(string itemName in itemStrings){
-            items.Add(itemName, false);
+                items.Add(itemName, false);
+            }
+            foreach(string stageName in stageStrings){
+                stages.Add(stageName, 0);
             }
             // TODO: Go to menu scene
             SceneManager.LoadScene("Menu");
@@ -75,7 +85,10 @@ public class GameManager : MonoBehaviour {
     {
         isGameOver = false;
         foreach(string itemName in itemStrings){
-            items[itemName] = true;
+            items[itemName] = false;
+        }
+        foreach(string stageName in stageStrings){
+            stages[stageName] = 0;
         }
         // TODO: Go to start scene
         Initiate.Fade("Present",Color.black,1f);
@@ -87,6 +100,8 @@ public class GameManager : MonoBehaviour {
         isGameOver = true;
         if(escaped) {
             // TODO: Player wins!
+            Destroy(GameObject.FindWithTag("Inventory"));
+            Initiate.Fade("EndScene",Color.black,1f);
         } else {
             // TODO: Player loses
         }
@@ -94,7 +109,7 @@ public class GameManager : MonoBehaviour {
 
     public void GoToMenu()
     {
-        return;
+        Initiate.Fade("Menu",Color.black,1f);
     }
 
     public bool paused = false;

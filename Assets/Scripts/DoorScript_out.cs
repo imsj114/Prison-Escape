@@ -33,7 +33,7 @@ public class DoorScript_out : MonoBehaviour
                 }
                 animator.SetBool("IsOpen", true);
                 nameText.text = "나의 생각";
-                dialogueText.text = "성공!";
+                dialogueText.text = "열렸다!";
                 return;
             }
         }else{

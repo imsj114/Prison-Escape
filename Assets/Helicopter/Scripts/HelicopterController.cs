@@ -69,7 +69,7 @@ public class HelicopterController : MonoBehaviour
             animator.SetBool("IsOpen", true);
             nameText.text = "Congrats!!";
             dialogueText.text = "탈출했다!! 야호~!!";
-            gameManager.GameOver();
+            gameManager.GameOver(true);
         }
     }
 

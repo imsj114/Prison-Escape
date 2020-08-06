@@ -31,6 +31,7 @@ public class Ground_Past1 : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.F)){
                 gameObject.SetActive(false);
                 animator.SetBool("IsOpen", true);
+                manager.items["groundDigged"] = true;
                 nameText.text = "나의 생각";
                 dialogueText.text = "이 땅굴을 저 뚜껑으로 숨겨야지.";
                 return;

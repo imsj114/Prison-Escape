@@ -362,6 +362,7 @@ namespace GreatArcStudios
         {
             // Application.LoadLevel(Application.loadedLevel);
             // uiEventSystem.firstSelectedGameObject = defualtSelectedMain;
+            Time.timeScale = 1f;
             GameManager.instance.StartGame();
         }
         /// <summary>
@@ -369,6 +370,7 @@ namespace GreatArcStudios
         /// </summary>
         public void Resume()
         {
+            Time.timeScale = 1f;
             GameManager.instance.SetPauseMenu();
         }
         /// <summary>
@@ -404,6 +406,7 @@ namespace GreatArcStudios
         /// </summary>
         public void returnToMenu()
         {
+            Time.timeScale = 1f;
             GameManager.instance.GoToMenu();
         }
 

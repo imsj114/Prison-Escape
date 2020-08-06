@@ -12,11 +12,14 @@ public class Block : MonoBehaviour
 
     public Transform south;
 
-    public GameObject player;
+    private GameObject player;
     public Coordinate coordinate;
 
     public int block_index;
     
+    private void Awake() {
+        player = GameObject.FindWithTag("Player");
+    }
 
     void OnTriggerStay(Collider other){
         

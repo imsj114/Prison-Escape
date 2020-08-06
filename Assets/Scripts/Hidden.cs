@@ -6,17 +6,20 @@ using UnityEngine.UI;
 public class Hidden : MonoBehaviour
 {
     public Text nameText;
+    
+    private GameManager gameManager;
     public Text dialogueText;
     public Animator animator;
     // Start is called before the first frame update
     void Awake()
     {
         animator.SetBool("IsOpen", false);
+        gameManager=GameManager.instance;
     }
 
     void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.tag =="Player"){
+        if(other.gameObject.tag =="Player" && !(gameManager.items["groundDigged"])){
             Debug.Log("들어감");
             animator.SetBool("IsOpen", true);
             nameText.text = "나의 생각";
